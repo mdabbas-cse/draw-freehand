@@ -80,15 +80,7 @@ penOpacity.addEventListener('change', (e) => {
 
 
 
-// document.addEventListener("contextmenu", (event) => {
-//   event.preventDefault();
-//   alert("Sorry prevent default off.")
-// });
-
-
-
-const math = new mathjs()
-
-console.log(math.sub(10, 5))
-
-console.log(freehand)
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  alert("Sorry prevent default off.")
+});
