@@ -108,6 +108,19 @@ canvas.addEventListener('mouseup', (e) => {
 ## Author
 [MD. Abbas Uddin](https://github.com/mdabbas-cse)
 
+## Development & Contribution
+Want to contribute? Great!
+To fix a bug or enhance an existing module, follow these steps: 
+
+- Fork the repo
+- Create a new branch (`git checkout -b improve-feature`)
+- Install dependencies (`npm install`)
+- Add changes to reflect the changes made
+- Build the project (`npm run build-rollup`)
+- Commit your changes (`git commit -am 'Improve feature'`)
+- Push to the branch (`git push origin improve-feature`)
+- Pull request are very welcome.
+
 ## Current Version
  1.0.0
 
