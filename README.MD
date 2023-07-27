@@ -61,6 +61,7 @@ canvas.addEventListener('mouseup', (e) => {
 | penHardness | number | 1 | pen hardness |
 | backgroundColor | string | '#ffffff' | background color |
 | toolType | string | 'brush' | tool type |
+| imageFormat | string | image/jpg, image/png, image/svg+xml | download image format |
 
 ## API
 
