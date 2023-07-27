@@ -1,4 +1,4 @@
-#Draw-freehand
+# Draw-freehand
 
 ## Description
 This is a simple drawing app that allows you to draw on a canvas with your mouse. You can change the color of the pen, the size of the pen, and the background color of the canvas. You can also save your drawing as a png file.
@@ -95,6 +95,13 @@ canvas.addEventListener('mouseup', (e) => {
 | `ctrl + d` | Clear canvas |
 
 
+
+## Browser Support
+- Chrome
+- Firefox
+- Microsoft Edge
+  
+Demo: [https://mdabbas-cse.github.io/draw-freehand/](https://mdabbas-cse.github.io/draw-freehand/)
 
 ## Author
 [MD. Abbas Uddin](https://github.com/mdabbas-cse)
