@@ -1,28 +1,26 @@
-#Freehand
+#Draw-freehand
 
 ## Description
 This is a simple drawing app that allows you to draw on a canvas with your mouse. You can change the color of the pen, the size of the pen, and the background color of the canvas. You can also save your drawing as a png file.
 
 
-## Installation
-To install this app, simply clone this repository and open the index.html file in your browser.
 
 ## Usage
 To use this app, simply open the index.html file in your browser. You can then draw on the canvas with your mouse. You can change the color of the pen, the size of the pen, and the background color of the canvas. You can also save your drawing as a png file.
 
-## Features
-- Change the color of the pen
-- Change the size of the pen
-- Change the background color of the canvas
-- Change the type of pen (round or square)
-- Change the opacity of the pen
-- Change the flow of the pen
-- Change the hardness of the pen
-- Change the tool type (brush, eraser & line)
-- Download your drawing as a png, jpg and svg file
-- Get the base64 of your drawing
+## Roadmap and Features
+- [x] Change the color of the pen
+- [x] Change the size of the pen
+- [x] Change the background color of the canvas
+- [x] Change the type of pen (round or square)
+- [x] Change the opacity of the pen
+- [x] Change the flow of the pen
+- [x] Change the hardness of the pen
+- [x] Change the tool type (brush, eraser & line)
+- [x] Download your drawing as a png, jpg and svg file
+- [x] Get the base64 of your drawing
 
-### API
+## Basic Installation
 
 ```
 const canvasSelect = document.querySelector('canvas')
@@ -51,9 +49,9 @@ canvas.addEventListener('mouseup', (e) => {
 
 ```
 
-## options 
+## Options 
 
-| option | type | default | description |
+| Option | Type | Default | Description |
 | --- | --- | --- | --- |
 | penSize | number | 3 | pen size |
 | penColor | string | '#000000' | pen color |
@@ -66,7 +64,7 @@ canvas.addEventListener('mouseup', (e) => {
 
 ## methods
 
-| method | description |
+| Method | Description |
 | --- | --- |
 | clear | clear canvas |
 | download | download canvas as png file |
@@ -88,13 +86,29 @@ canvas.addEventListener('mouseup', (e) => {
 
 
 ## Keyboard Shortcuts
-****
-| key | description |
+
+| Key | Description |
 | --- | --- |
 | `ctrl + z` | Undo |
 | `ctrl + y` | Redo |
 | `ctrl + s` | Download file |
 | `ctrl + d` | Clear canvas |
+
+
+
+## Author
+[MD. Abbas Uddin](https://github.com/mdabbas-cse)
+
+## Current Version
+ 1.0.0
+
+## Change Log
+###### v-1.0.0
+- Initial release
+
+## License
+MIT License
+
 
 
 

@@ -2,8 +2,13 @@
   "name": "freehand",
   "version": "1.0.0",
   "description": "Draw freehand on the canvas below. You can change the brush size and color, erase your drawing, and save it as an image.",
+  "author": "mdabbas-cse",
   "main": "dist/index.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mdabbas-cse/draw-freehand.git"
+  },
   "scripts": {
     "compile-css": "node-sass ./sass/app.scss ./app.min.css --watch --output-style compressed",
     "build-rollup": "rollup -c",
@@ -11,8 +16,23 @@
     "test": "node test/test.js",
     "pretest": "npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "freehand",
+    "drawing",
+    "canvas",
+    "signature",
+    "paint",
+    "signature-pad",
+    "painting",
+    "draw",
+    "draw-on-canvas",
+    "draw-on-image",
+    "draw-on-picture",
+    "draw-on-photo",
+    "perfect-freehand",
+    "perfect-freehand-drawing",
+    "perfect-freehand-drawing-on-canvas"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.0",
@@ -23,5 +43,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/mdabbas-cse/draw-freehand/issues"
+  },
+  "homepage": "https://github.com/mdabbas-cse/draw-freehand/blob/main/README.MD"
 }
