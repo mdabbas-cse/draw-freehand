@@ -62,7 +62,7 @@ canvas.addEventListener('mouseup', (e) => {
 | backgroundColor | string | '#ffffff' | background color |
 | toolType | string | 'brush' | tool type |
 
-## Methods
+## API
 
 | Method | Description |
 | --- | --- |
