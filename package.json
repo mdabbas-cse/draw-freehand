@@ -1,0 +1,27 @@
+{
+  "name": "freehand",
+  "version": "1.0.0",
+  "description": "Draw freehand on the canvas below. You can change the brush size and color, erase your drawing, and save it as an image.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "compile-css": "node-sass ./sass/app.scss ./app.min.css --watch --output-style compressed",
+    "build-rollup": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-terser": "^0.4.3",
+    "node-sass": "^9.0.0",
+    "rollup": "^3.26.3"
+  },
+  "files": [
+    "dist"
+  ]
+}

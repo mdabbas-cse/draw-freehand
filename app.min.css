@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #4A98F7;
+}
+
+/*
+  color variables
+*/
+:root {
+  --white: #fff;
+  --black: #000;
+  --red: #E02020;
+  --green: #6DD400;
+  --blue: #4A98F7;
+  --gray: #5A6168;
+  --light-gray: #bfbfbf;
+}
+
+.header {
+  padding: 10px 20px;
+  /* background: #fff; */
+  border-radius: 7px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--white);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+
+  background-color: #ededed;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flx-center-gap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flx-center {
+  display: flex;
+  align-items: center;
+}
+
+.setting-section {
+  margin: 10px 0 0 10px;
+}
+
+section {
+  background: #fff;
+  border-radius: 7px;
+}
+
+.tools-board {
+  width: 210px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.tools-board .row {
+  margin-bottom: 20px;
+}
+
+.tools-board .row .options {
+  list-style: none;
+  margin: 10px 0 0 5px;
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.option:hover,
+.option.active {
+  color: #4A98F7;
+  background-color: #f3f3f3;
+}
+
+
+/* .tools-board .row .options .option:is(:hover, .active) img {
+  filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+} */
+
+.tools-board .row .options .option :where(span, label) {
+  color: #5A6168;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.tools-board .row .options .option:is(:hover, .active) :where(span, label) {
+  color: #4A98F7;
+}
+
+.tools-board .row .options .option #fill-color {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+}
+
+.tools-board .row .options .option #fill-color:checked~label {
+  color: #4A98F7;
+}
+
+.range-slider {
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+}
+
+.color-picker {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+}
+
+.git-hub-link {
+  position: absolute;
+  right: 2%;
+  top: 8%;
+}
+
+.colors .options,
+.background-color .options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colors .options .option,
+.background-color .options .option {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 3px;
+  position: relative;
+}
+
+.colors .options .option:nth-child(1),
+.background-color .options .option:nth-child(1) {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+}
+
+.colors .options .option:nth-child(2),
+.background-color .options .option:nth-child(2) {
+  background-color: #000;
+}
+
+.colors .options .option:nth-child(3),
+.background-color .options .option:nth-child(3) {
+  background-color: #E02020;
+}
+
+.colors .options .option:nth-child(4),
+.background-color .options .option:nth-child(4) {
+  background-color: #6DD400;
+}
+
+.colors .options .option:nth-child(5),
+.background-color .options .option:nth-child(5) {
+  background-color: #4A98F7;
+}
+
+.colors .options .option:nth-child(1).selected::before,
+.background-color .options .option:nth-child(1).selected::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  height: 12px;
+  width: 12px;
+  background: inherit;
+  border-radius: inherit;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+}
+
+.colors .options .option:nth-child(1).selected::before,
+.background-color .options .option:nth-child(1).selected::before {
+  border-color: #ccc;
+}
+
+.colors .options #color-picker,
+.background-color .options #color-picker {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.buttons button {
+  width: 100%;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 11px 0;
+  font-size: 0.9rem;
+  margin-bottom: 13px;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buttons .clear-canvas {
+  color: #6C757D;
+  border: 1px solid #6C757D;
+  transition: all 0.3s ease;
+}
+
+.buttons .clear-canvas:hover {
+  color: #fff;
+  background: #6C757D;
+}
+
+.buttons .save-img {
+  background: #4A98F7;
+  border: 1px solid #4A98F7;
+}
+
+.drawing-board {
+  flex: 1;
+  overflow: hidden;
+}
+
+.drawing-board canvas {
+  width: 100%;
+  height: 100%;
+}
