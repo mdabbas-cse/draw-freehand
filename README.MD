@@ -114,7 +114,7 @@ Demo: [https://mdabbas-cse.github.io/draw-freehand/](https://mdabbas-cse.github.
 - Initial release
 
 ## License
-MIT License
+MIT © [Rubel Amin](https://github.com/mdrubelamin2) | [MD. Abbas Uddin](https://github.com/mdabbas-cse)
 
 
 
