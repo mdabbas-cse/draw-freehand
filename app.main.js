@@ -1,7 +1,7 @@
 
 const canvasSelect = document.querySelector('#canvas')
 
-canvas = new freehand.Freehand(canvasSelect, {
+canvas = new DrawFreehand.Freehand(canvasSelect, {
   penSize: 3,
   penColor: '#000000',
   penType: 'round',
