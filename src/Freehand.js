@@ -92,8 +92,13 @@ export default class Freehand {
 
 
     this.#canvas.addEventListener('mousedown', this.#startDrawing.bind(this))
+    this.#canvas.addEventListener('touchstart', this.#startDrawing.bind(this))
+
     this.#canvas.addEventListener('mousemove', this.#draw.bind(this))
+    this.#canvas.addEventListener('touchmove', this.#draw.bind(this))
+
     this.#canvas.addEventListener('mouseup', this.#stopDrawing.bind(this))
+    this.#canvas.addEventListener('touchend', this.#stopDrawing.bind(this))
 
     this.#select('#clear')?.addEventListener('click', this.clear)
 
