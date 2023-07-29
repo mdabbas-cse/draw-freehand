@@ -158,7 +158,7 @@ export default class Freehand {
     if (this.toolType === 'line') {
       this.#ctx.beginPath()
       this.#ctx.moveTo(this.#prevMouseX, this.#prevMouseY)
-      this.#ctx.lineTo(offsetX, offsetY)
+    //  this.#ctx.lineTo(offsetX, offsetY)
       this.#ctx.stroke()
     }
 
