@@ -147,7 +147,7 @@ export default class Freehand {
   #draw(e) {
     if (!this.#isDrawing) return
     this.#ctx.putImageData(this.#snapShot, 0, 0)
-    const { offsetX, offsetY } = e
+    const { clientX, client } = e
 
     this.#ctx.strokeStyle = this.toolType === 'brush' ? this.#penColor : this.#backgroundColor
     this.#ctx.lineTo(offsetX, offsetY)
@@ -158,7 +158,7 @@ export default class Freehand {
     if (this.toolType === 'line') {
       this.#ctx.beginPath()
       this.#ctx.moveTo(this.#prevMouseX, this.#prevMouseY)
-      // this.#ctx.lineTo(offsetX, offsetY)
+    //  this.#ctx.lineTo(offsetX, offsetY)
       this.#ctx.stroke()
     }
 
