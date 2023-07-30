@@ -9,8 +9,7 @@ const version = process.env.SEMANTIC_RELEASE_NEXT_VERSION || pkg.version;
 
 const banner = '/*!\n' +
   ` * Draw Freehand v${version} | ${pkg.homepage}\n` +
-  ` * (c) ${new Date().getFullYear()} ${pkg.author.name
-  } | Released under the MIT license\n` +
+  ` * (c) ${new Date().getFullYear()} ${pkg.author.name} | Released under the MIT license\n` +
   ' */\n';
 
 const terserOptions = {
@@ -23,13 +22,16 @@ const terserOptions = {
   },
 }
 
+const fileName = pkg.name
+const name = 'DrawFreehand'
+
 export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/freehand.min.js',
+      file: `dist/${fileName}.min.js`,
       format: 'iife',
-      name: 'freehand',
+      name,
       plugins: [
         terser(terserOptions),
         resolve(),
@@ -40,9 +42,9 @@ export default {
       }
     },
     {
-      file: 'dist/draw-free-hand.umd.js',
+      file: `dist/${fileName}.umd.js`,
       format: 'umd',
-      name: 'DrawFreehand',
+      name,
       plugins: [
         terser(terserOptions),
         resolve(),
@@ -52,7 +54,12 @@ export default {
         document: 'document'
       },
       sourcemap: true,
-      banner
+      banner,
+      external: [
+        'window',
+        'document',
+        name
+      ]
     }
   ],
   plugins: [

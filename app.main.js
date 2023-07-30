@@ -51,20 +51,20 @@ function toolChange(tool) {
 }
 
 const penColor = document.querySelector('#pen-color')
-const backgroundColor = document.querySelector('#background-color')
 const penSize = document.querySelector('#pen-size')
+const backgroundColor = document.querySelector('#background-color')
 const penOpacity = document.querySelector('#pen-opacity')
 
 penColor.addEventListener('change', (e) => {
   canvas.setPenColor(e.target.value)
 })
 
-backgroundColor.addEventListener('change', (e) => {
-  canvas.setBackgroundColor(e.target.value)
-})
-
 penSize.addEventListener('change', (e) => {
   canvas.setPenSize(e.target.value)
+})
+
+backgroundColor.addEventListener('change', (e) => {
+  canvas.setBackgroundColor(e.target.value)
 })
 
 penOpacity.addEventListener('change', (e) => {

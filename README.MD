@@ -27,7 +27,7 @@ To use this app, simply open the index.html file in your browser. You can then d
 ```
 const canvasSelect = document.querySelector('canvas')
 
-canvas = new Freehand(canvasSelect, {
+const canvas = new DrawFreehand.Freehand(canvasSelect, {
   penSize: 3,
   penColor: '#000000',
   penType: 'round',
@@ -37,16 +37,23 @@ canvas = new Freehand(canvasSelect, {
   backgroundColor: '#0e11df',
   toolType: 'brush',
 })
+// all options are default value, you can change it.
 
 // clear canvas
 document.querySelector('#clear').addEventListener('click', () => {
   canvas.clear()
 })
 
+// set pen size and color
+const penColor = document.querySelector('#pen-color')
+const penSize = document.querySelector('#pen-size')
 
-// for custom event
-canvas.addEventListener('mouseup', (e) => {
-  console.log(canvas.download())
+penColor.addEventListener('change', (e) => {
+  canvas.setPenColor(e.target.value)
+})
+
+penSize.addEventListener('change', (e) => {
+  canvas.setPenSize(e.target.value)
 })
 
 ```

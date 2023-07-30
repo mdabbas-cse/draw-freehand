@@ -1,9 +1,13 @@
 {
-  "name": "freehand",
+  "name": "draw-freehand",
   "version": "1.0.0",
   "description": "Draw freehand on the canvas below. You can change the brush size and color, erase your drawing, and save it as an image.",
-  "author": "mdabbas-cse",
-  "main": "dist/index.js",
+  "author": {
+    "name": "Md Abbas Uddin",
+    "email": "gmabbas44@gmail.com",
+    "url": "https://github.com/mdabbas-cse/"
+  },
+  "main": "dist/draw-freehand.min.js",
   "type": "module",
   "repository": {
     "type": "git",
