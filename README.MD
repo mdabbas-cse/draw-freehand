@@ -5,22 +5,22 @@ This is a simple drawing app that allows you to draw on a canvas with your mouse
 
 ## Demo
 Live Demo: [https://mdabbas-cse.github.io/draw-freehand/](https://mdabbas-cse.github.io/draw-freehand/)
-![Demo](https://github.com/mdabbas-cse/draw-freehand/blob/main/img/draw-freehand-screenshort.png "mage")
+![Demo](https://github.com/mdabbas-cse/draw-freehand/blob/main/img/draw-freehand.png "image")
 
 ## Usage
 To use this app, simply open the index.html file in your browser. You can then draw on the canvas with your mouse. You can change the color of the pen, the size of the pen, and the background color of the canvas. You can also save your drawing as a png file.
 
 ## Roadmap and Features
-- [x] Change the color of the pen
-- [x] Change the size of the pen
-- [x] Change the background color of the canvas
+- [x] Change the color of the pen.
+- [x] Change the size of the pen.
+- [x] Change the background color of the canvas.
 - [x] Change the type of pen (round or square)
-- [x] Change the opacity of the pen
-- [x] Change the flow of the pen
-- [x] Change the hardness of the pen
-- [x] Change the tool type (brush, eraser & line)
-- [x] Download your drawing as a png, jpg and svg file
-- [x] Get the base64 of your drawing
+- [x] Change the opacity of the pen.
+- [x] Change the flow of the pen.
+- [x] Change the hardness of the pen.
+- [x] Change the tool type (brush, eraser & line).
+- [x] Download your drawing as a **JPG**, **PNG**, and **SVG** image format.
+- [x] Get the base64 of your drawing.
 
 ## Basic Installation
 
@@ -120,12 +120,12 @@ Want to contribute? Great!
 To fix a bug or enhance an existing module, follow these steps: 
 
 - Fork the repo
-- Create a new branch (`git checkout -b improve-feature`)
+- Create a new branch (`git checkout -b [your branch name]]`)
 - Install dependencies (`npm install`)
 - Add changes to reflect the changes made
 - Build the project (`npm run build-rollup`)
 - Commit your changes (`git commit -am 'Improve feature'`)
-- Push to the branch (`git push origin improve-feature`)
+- Push to the branch (`git push origin [your branch name]]`)
 - Pull request are very welcome.
 
 ## Current Version
