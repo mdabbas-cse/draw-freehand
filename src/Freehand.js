@@ -176,6 +176,8 @@ export default class Freehand {
     this.#ctx.strokeStyle = this.#penColor
     // set line cap
     this.#ctx.lineCap = this.#penType
+    // line join
+    this.#ctx.lineJoin = 'round'
     // set line opacity
     this.#ctx.globalAlpha = this.#penOpacity
     // set line flow

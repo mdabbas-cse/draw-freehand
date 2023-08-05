@@ -7,10 +7,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background: #4A98F7;
-}
-
 /*
   color variables
 */
@@ -23,6 +19,36 @@ body {
   --gray: #5A6168;
   --light-gray: #bfbfbf;
 }
+
+body {
+  background: var(--blue);
+  scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--gray); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light-gray); 
+  border-radius: 10px;
+  transition: background-color 0.5s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue); 
+}
+
+
 
 .header {
   padding: 10px 20px;
@@ -38,6 +64,7 @@ body {
   width: 100%;
   gap: 10px;
   padding: 10px;
+  height: 500px;
 }
 
 .title {
@@ -74,6 +101,8 @@ section {
   width: 210px;
   border: 1px solid #ccc;
   padding: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .tools-board .row {
