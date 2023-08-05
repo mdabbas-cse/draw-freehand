@@ -15,7 +15,7 @@ const banner = '/*!\n' +
 const terserOptions = {
   compress: {
     passes: 10,
-    drop_console: false,
+    drop_console: true,
   },
   output: {
     comments: false,
