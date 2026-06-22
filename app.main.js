@@ -7,7 +7,7 @@ canvas = new DrawFreehand.Freehand(canvasSelect, {
   penOpacity: 1,
   penFlow: 1,
   penHardness: 1,
-  backgroundColor: '#0e11df',
+  backgroundColor: '#ffffff',
   toolType: 'brush',
   imageFormat: 'image/png',
 })
