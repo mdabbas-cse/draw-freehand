@@ -42,6 +42,10 @@ export default class Freehand {
 
   #countIndex
 
+  #smoothingLevel = 0.5
+
+  #currentPoints = []
+
   constructor(canvas, options = {}) {
     try {
 
@@ -71,6 +75,7 @@ export default class Freehand {
     this.#backgroundColor = options?.backgroundColor || '#ffffff'
     this.toolType = options?.toolType || 'brush' // brush, eraser
     this.#imageFormat = options?.imageFormat || 'image/png'
+    this.#smoothingLevel = options?.smoothing ?? 0.5
   }
 
   init() {
@@ -146,25 +151,87 @@ export default class Freehand {
 
   #draw(e) {
     if (!this.#isDrawing) return
-    this.#ctx.putImageData(this.#snapShot, 0, 0)
-    const { offsetX, offsetY } = e
 
-    this.#ctx.strokeStyle = this.toolType === 'brush' ? this.#penColor : this.#backgroundColor
-    this.#ctx.lineTo(offsetX, offsetY)
-    this.#ctx.stroke()
-    this.#ctx.moveTo(offsetX, offsetY)
+    const x = e.offsetX
+    const y = e.offsetY
 
-    // for straight line
+    // Line tool: restore snapshot and show straight preview
     if (this.toolType === 'line') {
+      this.#ctx.putImageData(this.#snapShot, 0, 0)
       this.#ctx.beginPath()
       this.#ctx.moveTo(this.#prevMouseX, this.#prevMouseY)
-      this.#ctx.lineTo(offsetX, offsetY)
+      this.#ctx.lineTo(x, y)
       this.#ctx.stroke()
+      return
     }
 
+    this.#ctx.strokeStyle = this.toolType === 'brush' ? this.#penColor : this.#backgroundColor
+
+    // Apply EMA smoothing to input: smoothingLevel 0 = raw, 1 = heavily smoothed
+    let sx = x, sy = y
+    if (this.#smoothingLevel > 0 && this.#currentPoints.length > 0) {
+      const prev = this.#currentPoints[this.#currentPoints.length - 1]
+      const t = 1 - this.#smoothingLevel * 0.9
+      sx = prev.x + (x - prev.x) * t
+      sy = prev.y + (y - prev.y) * t
+    }
+    this.#currentPoints.push({ x: sx, y: sy })
+
+    const pts = this.#currentPoints
+    const len = pts.length
+
+    if (len < 2) return
+
+    this.#ctx.beginPath()
+
+    if (this.#smoothingLevel > 0 && len === 2) {
+      // First segment: draw only to the midpoint so bezier can start cleanly
+      const midX = (pts[0].x + pts[1].x) / 2
+      const midY = (pts[0].y + pts[1].y) / 2
+      this.#ctx.moveTo(pts[0].x, pts[0].y)
+      this.#ctx.lineTo(midX, midY)
+    } else if (this.#smoothingLevel === 0 || len < 3) {
+      // No smoothing: straight line segment
+      this.#ctx.moveTo(pts[len - 2].x, pts[len - 2].y)
+      this.#ctx.lineTo(pts[len - 1].x, pts[len - 1].y)
+    } else {
+      // Smooth: quadratic bezier from midpoint to midpoint, raw point as control
+      const p0 = pts[len - 3]
+      const p1 = pts[len - 2]
+      const p2 = pts[len - 1]
+      const startX = (p0.x + p1.x) / 2
+      const startY = (p0.y + p1.y) / 2
+      const endX = (p1.x + p2.x) / 2
+      const endY = (p1.y + p2.y) / 2
+      this.#ctx.moveTo(startX, startY)
+      this.#ctx.quadraticCurveTo(p1.x, p1.y, endX, endY)
+    }
+
+    this.#ctx.stroke()
   }
 
   #stopDrawing() {
+    if (this.#isDrawing && this.toolType !== 'line') {
+      const pts = this.#currentPoints
+      if (pts.length === 1) {
+        // Single click with no drag: draw a dot
+        const pt = pts[0]
+        this.#ctx.beginPath()
+        this.#ctx.arc(pt.x, pt.y, this.#penSize / 2, 0, Math.PI * 2)
+        this.#ctx.fillStyle = this.toolType === 'brush' ? this.#penColor : this.#backgroundColor
+        this.#ctx.fill()
+      } else if (pts.length >= 2 && this.#smoothingLevel > 0) {
+        // Close the gap from the last drawn midpoint to the actual last point
+        const last = pts[pts.length - 1]
+        const prev = pts[pts.length - 2]
+        const midX = (prev.x + last.x) / 2
+        const midY = (prev.y + last.y) / 2
+        this.#ctx.beginPath()
+        this.#ctx.moveTo(midX, midY)
+        this.#ctx.lineTo(last.x, last.y)
+        this.#ctx.stroke()
+      }
+    }
     this.#isDrawing = false
     this.#ctx.beginPath()
     this.#storePaths()
@@ -196,9 +263,8 @@ export default class Freehand {
     this.#ctx.strokeStyle = this.#penColor
     this.#ctx.fillStyle = this.#backgroundColor
 
-    // set line cap
     this.#snapShot = this.#ctx.getImageData(0, 0, this.#canvas.width, this.#canvas.height)
-    // create new path
+    this.#currentPoints = []
     this.#ctx.beginPath()
 
     this.#draw(e)
@@ -215,6 +281,7 @@ export default class Freehand {
     this.#setCanvasBackground()
     this.#pathArr = []
     this.#countIndex = -1
+    this.#currentPoints = []
   }
 
   undo() {
@@ -269,6 +336,14 @@ export default class Freehand {
 
   setImageFormat(imageFormat) {
     this.#imageFormat = imageFormat
+  }
+
+  setSmoothingLevel(level) {
+    this.#smoothingLevel = Math.max(0, Math.min(1, level))
+  }
+
+  getSmoothingLevel() {
+    return this.#smoothingLevel
   }
 
   getImageString() {
