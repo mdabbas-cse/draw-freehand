@@ -385,7 +385,8 @@ export default class Freehand {
     } catch (error) {
       console.error('Please provide canvas selector or canvas element')
     }
-    this.#canvas.style.cursor = "url('./img/pen.ico'), crosshair"
+    this.#canvas.style.cursor           = "url('./img/pen.ico'), crosshair"
+    this.#canvas.style.backgroundColor = '#ffffff'
     this.#setDefaults(options)
     this.init()
   }
@@ -593,7 +594,7 @@ export default class Freehand {
   setPenOpacity(opacity)      { this.#penOpacity = opacity }
   setPenFlow(flow)            { this.#penFlow = flow }
   setPenHardness(hardness)    { this.#penHardness = hardness }
-  setBackgroundColor(color)   { this.#backgroundColor = color }
+  setBackgroundColor(color)   { this.#backgroundColor = color; this.#canvas.style.backgroundColor = color }
   setImageFormat(format)      { this.#imageFormat = format }
 
   // perfect-freehand controls
