@@ -27,15 +27,13 @@ const name = 'DrawFreehand'
 
 export default {
   input: 'src/index.js',
+  external: ['window', 'document'],
   output: [
     {
       file: `dist/${fileName}.min.js`,
       format: 'iife',
       name,
-      plugins: [
-        terser(terserOptions),
-        resolve(),
-      ],
+      plugins: [terser(terserOptions)],
       globals: {
         window: 'window',
         document: 'document'
@@ -45,24 +43,17 @@ export default {
       file: `dist/${fileName}.umd.js`,
       format: 'umd',
       name,
-      plugins: [
-        terser(terserOptions),
-        resolve(),
-      ],
+      plugins: [terser(terserOptions)],
       globals: {
         window: 'window',
         document: 'document'
       },
       sourcemap: true,
       banner,
-      external: [
-        'window',
-        'document',
-        name
-      ]
     }
   ],
   plugins: [
-    json()
+    json(),
+    resolve(),
   ]
 }
