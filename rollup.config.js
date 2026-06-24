@@ -2,7 +2,7 @@ import json from "@rollup/plugin-json";
 import terser from "@rollup/plugin-terser";
 import resolve from '@rollup/plugin-node-resolve'
 
-import pkg from './package.json' assert { type: "json" };
+import pkg from './package.json' with { type: "json" };
 
 const version = process.env.SEMANTIC_RELEASE_NEXT_VERSION || pkg.version;
 
